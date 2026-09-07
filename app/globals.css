@@ -1,0 +1,51 @@
+:root {
+  color-scheme: dark;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  min-height: 100%;
+  background: #140c12;
+  font-family: var(--font-body), system-ui, sans-serif;
+}
+
+.stage {
+  min-height: 100dvh;
+  display: grid;
+  place-items: center;
+  padding: 16px;
+  background:
+    radial-gradient(1200px 500px at 70% 30%, #c45c3e 0%, transparent 55%),
+    linear-gradient(180deg, #1a1028 0%, #3a1828 45%, #140c12 100%);
+}
+
+.frame {
+  width: min(96vw, calc(96dvh * 960 / 540));
+  outline: none;
+  border-radius: 18px;
+  overflow: hidden;
+  box-shadow:
+    0 0 0 4px #4a2a22,
+    0 0 0 8px #c47a48,
+    0 24px 60px rgba(0, 0, 0, 0.45);
+  background: #1a1020;
+}
+
+.frame canvas {
+  display: block;
+  width: 100%;
+  height: auto;
+  vertical-align: middle;
+}
+
+.frame:focus {
+  box-shadow:
+    0 0 0 4px #4a2a22,
+    0 0 0 8px #e8a05a,
+    0 24px 60px rgba(0, 0, 0, 0.45);
+}
