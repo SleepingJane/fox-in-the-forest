@@ -23,6 +23,7 @@ export function drawFrame(
   drawFarHills(ctx, cam);
   drawTreeLayer(ctx, cam, 0.18, 0.55, 26, 1);
   drawTreeLayer(ctx, cam, 0.38, 0.78, 18, 2);
+  drawTreeLayer(ctx, cam, 0.55, 0.92, 10, 3);
   drawGroundWash(ctx, cam);
   drawPlatforms(ctx, cam);
   drawDecor(ctx, cam, state.time);
@@ -31,7 +32,6 @@ export function drawFrame(
   drawLantern(ctx, state, cam);
   drawFox(ctx, state.player, cam, state.time, state.phase === "hurt");
   drawParticles(ctx, state, cam);
-  drawTreeLayer(ctx, cam, 1.05, 1, 10, 3);
   drawVignette(ctx);
   ctx.restore();
   drawHud(ctx, state, fonts);
@@ -140,8 +140,8 @@ function drawTreeLayer(
     const worldX = seed * span - 80;
     const x = worldX - cam * parallax;
     if (x < -80 || x > VIEW_W + 80) continue;
-    const scale = 0.7 + hash(i + layer * 3) * (layer === 3 ? 1.1 : 0.7);
-    const base = layer === 3 ? VIEW_H - 8 : VIEW_H * (0.72 + layer * 0.04);
+    const scale = 0.7 + hash(i + layer * 3) * 0.7;
+    const base = VIEW_H * (0.72 + layer * 0.04);
     const color =
       layer === 1 ? "#2b1830" : layer === 2 ? "#241c22" : "#1a1410";
     pine(ctx, x, base, scale, color);
